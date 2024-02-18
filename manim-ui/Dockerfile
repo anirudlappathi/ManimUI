@@ -15,16 +15,16 @@ COPY . .
 # Build the React app
 RUN npm run build
 
-# Switch to a smaller image for serving
-FROM nginx:alpine
+# # Switch to a smaller image for serving
+# FROM nginx:alpine
 
-WORKDIR /usr/share/nginx/html
+# WORKDIR /usr/share/nginx/html
 
-# Copy the build output from the builder stage
-COPY --from=builder /app/build .
+# # Copy the build output from the builder stage
+# COPY --from=builder /app/build .
 
-# Expose port 80
-EXPOSE 80
+# # Expose port 80
+# EXPOSE 80
 
-# Configure default server block
-CMD ["nginx", "-g", "daemon off;"]
+# # Configure default server block
+# CMD ["nginx", "-g", "daemon off;"]
