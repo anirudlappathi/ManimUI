@@ -3,20 +3,19 @@ FROM node:alpine AS builder
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+VOLUME ["/app"]
+
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# ADD DEPENDENCIES AS YOU GO
+RUN npm install 
 
-# Copy the rest of the project files
 COPY . .
 
-# Build the React app
 RUN npm run build
 
-# # Switch to a smaller image for serving
-# FROM nginx:alpine
+# Switch to a smaller image for serving
+FROM nginx:alpine
 
 # WORKDIR /usr/share/nginx/html
 
@@ -26,5 +25,5 @@ RUN npm run build
 # # Expose port 80
 # EXPOSE 80
 
-# # Configure default server block
-# CMD ["nginx", "-g", "daemon off;"]
+# Configure default server block
+CMD ["nginx", "-g", "daemon off;"]
