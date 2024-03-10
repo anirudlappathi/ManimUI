@@ -1,0 +1,6 @@
+# requirements
+
+pip install flask,
+pip install python-dotenv,
+pip install flask_cors,
+pip install flask_cors
