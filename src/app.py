@@ -3,3 +3,7 @@ from dotenv import load_dotenv, find_dotenv
 import os
 
 from flask_cors import CORS
+
+app = Flask(__name__)
+
+CORS(app)
